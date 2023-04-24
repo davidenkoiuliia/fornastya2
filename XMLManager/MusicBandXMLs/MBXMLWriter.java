@@ -1,6 +1,6 @@
 package XMLManager.MusicBandXMLs;
 
-import Exceptions.CustomIOException;
+import Exceptions.IO.CustomIOException;
 import Exceptions.IO.FilePermissionException;
 import Models.Band;
 import Reciever.MusicBandCollection;

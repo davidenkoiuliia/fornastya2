@@ -1,11 +1,10 @@
-
 package Reciever;
 
 import Exceptions.IO.CustomIOException;
 import Exceptions.IO.FilePermissionException;
 import Exceptions.IO.InvalidFileDataException;
 import Exceptions.IO.WrongArgumentException;
-import Exceptions.receiver.CollectionKeyException;
+import Exceptions.Receiver.CollectionKeyException;
 import Models.Band;
 import Models.Coordinates;
 import Models.MusicGenre;
@@ -20,7 +19,6 @@ import java.io.FileNotFoundException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * The Receiver class is responsible for managing the movie collection. It uses MovieCollection
@@ -71,11 +69,11 @@ public class Receiver {
     }
 
 
-    public void insert(Integer key, String bandName, Integer x, Integer y, int numberOfParticipants, int albumCost, MusicGenre genre,
+    public void insert(Integer key, String bandName, Integer x, int y, int numberOfParticipants, int albumsCount, MusicGenre genre,
                        String name, String address) throws CollectionKeyException, WrongArgumentException {
         if (mbCollection.getElementByKey(key) != null)
             throw new CollectionKeyException("key already exists");
-        Band band = new Band(bandName, new Coordinates(x, y), numberOfParticipants, albumCost, genre,
+        Band band = new Band(bandName, new Coordinates(x, y), numberOfParticipants, albumsCount, genre,
                 new Studio(name, address));
         band.setID();
         mbCollection.put(key, band);
@@ -122,7 +120,7 @@ public class Receiver {
      */
     public void save() {
         try {
-            xmlFileWriter.write(mbCollection);
+            xmlFileWriter.write((MusicBandFileWriter) mbCollection);
             System.out.println("*collection saved successfully*");
         } catch (FileNotFoundException | FilePermissionException | CustomIOException e) {
             System.out.println(e.getMessage());
@@ -196,5 +194,8 @@ public class Receiver {
             throw new FileNotFoundException("! file " + path + " not found !");
         if (!file.canRead())
             throw new FilePermissionException("! no read and/or write permission for file " + path + "  !");
+    }
+
+    public void insert(Integer id, String name, Integer x, Float y, int albumsCount, MusicGenre genre, int numberOfParticipants, String studioName, String StudioAddress, LocalDateTime creationDate) {
     }
 }

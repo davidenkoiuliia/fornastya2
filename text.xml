@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bandCollection collectionCreationDate="2023-05-03T23:01:37.317213200+03:00[Europe/Moscow]">
+    <band>
+        <id>1</id>
+        <bandName>Nirvana</bandName>
+        <coordinates>
+            <x>1</x>
+            <y>11.0</y>
+        </coordinates>
+        <numberOfParticipants>2</numberOfParticipants>
+        <albumsCount>2</albumsCount>
+        <genre>RAP</genre>
+        <studio>
+            <studioName>NN</studioName>
+            <studioAddress>NewYorkCity</studioAddress>
+        </studio>
+    </band>
+    <band>
+        <id>2</id>
+        <bandName>Beatles</bandName>
+        <coordinates>
+            <x>3</x>
+            <y>4.0</y>
+        </coordinates>
+        <numberOfParticipants>3</numberOfParticipants>
+        <albumsCount>4</albumsCount>
+        <genre>RAP</genre>
+        <studio>
+            <studioName>Hello</studioName>
+            <studioAddress>London</studioAddress>
+        </studio>
+    </band>
+</bandCollection>
